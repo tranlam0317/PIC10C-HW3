@@ -46,7 +46,7 @@ class RingQueue{
 
             public:
                 reference operator*() {
-                    return parent->buffer[parent->begin_index + offset] % MAX_SIZE];  
+                    return parent->buffer[(parent->begin_index + offset) % MAX_SIZE];  
                 }
 
                 iterator& operator++(){
@@ -159,7 +159,7 @@ class RingQueue{
 
         // Mutators
         void push_back( const ItemType& value ){
-            buffer (end_index()] = value; 
+            buffer [end_index()] = value; 
             
             if (ring_size == MAX_SIZE){ 
                 if (begin_index == MAX_SIZE - 1){ 
@@ -179,7 +179,7 @@ class RingQueue{
             
             ring_size--; 
             
-            if (being_index == MAX_SIZE - 1) { 
+            if (begin_index == MAX_SIZE - 1) { 
                 begin_index = 0; 
             } 
             else{

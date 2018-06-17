@@ -63,13 +63,20 @@ class RingQueue{
                 }
 
                 bool operator==( const iterator& rhs ) const {
-                    // Replace the line(s) below with your code.
-                    return true;
+                    if (rhs.parent == this->parent && rhs.offset == this -> offset){
+                        return true;
+                    }
+                    return false; 
                 }
-
+             
                 bool operator!=( const iterator& rhs ) const {
-                    // Replace the line(s) below with your code.
-                    return true;
+                    if (rhs.parent != this->parent){
+                        return true; 
+                    }
+                    else if(rhs.offset != this-> offset) { 
+                        return true; 
+                    }
+                    return false; 
                 }
 
         };

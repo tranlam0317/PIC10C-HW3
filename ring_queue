@@ -1,13 +1,6 @@
-// Description: An incomplete implementation of iterators for a
-//              RingQueue class.
-//
-// Notes: The project DOES compile but there is no meaningful 
-//              output
-//
-// Your job: To complete this set of classes so that the output
-//              produced by 'main' (below), matches the sample
-//              file provided at the end of this file.
-
+//Tran Lam
+//UID: 304439302
+//hw.3: ring_queue.cpp
 
 #include <iostream>
 
@@ -224,13 +217,13 @@ int main(){
     // implementation of RingQueue<ItemType,int>::end(). 
     // If the implementation is not correct, it might result in 
     // an infinite loop.
-    /** 
+   
     std::cout << "Queue via iterators: \n";
     for ( auto it = rq.begin() ; it != rq.end() ; ++it ) {
         std::cout << "Value: " << *it << ", address: " << &(*it) << '\n';
     }
     std::cout << '\n';
-    */
+  
 
 
 

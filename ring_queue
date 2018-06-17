@@ -159,26 +159,46 @@ class RingQueue{
 
         // Mutators
         void push_back( const ItemType& value ){
-            return;
+            buffer (end_index()] = value; 
+            
+            if (ring_size == MAX_SIZE){ 
+                if (begin_index == MAX_SIZE - 1){ 
+                     begin_index = 0; 
+                }
+                else{ 
+                    begin_index++; 
+                }
+            }        
+            else {
+                ring_size++; 
+            } 
+            
         }
+        
         void pop_front(){
-            return;
+            
+            ring_size--; 
+            
+            if (being_index == MAX_SIZE - 1) { 
+                begin_index = 0; 
+            } 
+            else{
+                begin_index++; 
+            }
         }
 
         // Functions that return iterators
         iterator begin() { 
-            // Replace the line(s) below with your code.
             return iterator(this,0); 
         }
+        
         iterator end() {
-            // Replace the line(s) below with your code.
             return iterator(this,0);
         }
 
         // Miscellaneous functions
         size_t size() const {
-            // Replace the line(s) below with your code.
-            return 0;
+            return ring_size; 
         }
 
         // Debugging functions
@@ -293,3 +313,5 @@ int main(){
         Val: 6, at: 0x7ffcdeeaab54
         Val: 7, at: 0x7ffcdeeaab58
  */
+ 
+ 

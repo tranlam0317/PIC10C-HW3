@@ -9,7 +9,6 @@ template <typename ItemType, int MAX_SIZE>
 class RingQueue;
 
 
-
 template <typename ItemType, int MAX_SIZE>
 class RingQueue{
     
@@ -20,13 +19,9 @@ class RingQueue{
     public: 
         class iterator;
 
-
-
     // Aliases. 
     typedef ItemType* pointer;
     typedef ItemType& reference;
-
-
 
     // Definition of RingQueue<ItemType,MAX_SIZE>::iterator
     public:
@@ -42,28 +37,29 @@ class RingQueue{
 
             private:  // Private constructor???
                 iterator(RingQueue* _parent, int _offset = 0 )
-                  : parent(_parent), offset(_offset) { }
+                  : parent(_parent), offset(_offset% MAX_SIZE) { }
 
                 
             // It is quite common for Containers and their iterators
             // to be friends. After all, they should work closely together.
             friend class RingQueue<ItemType,MAX_SIZE>;
 
-
             public:
                 reference operator*() {
-                    // Replace the line(s) below with your code.
-                    return parent->buffer[0] ;  
+                    return parent->buffer[parent->begin_index + offset] % MAX_SIZE];  
                 }
 
                 iterator& operator++(){
-                    // Replace the line(s) below with your code.
+                    offset = (offset % MAX_SIZE); 
                     return *this;
                 }
 
                 iterator operator++( int unused ){
-                    // Replace the line(s) below with your code.
-                    return *this;
+                    iterator copy(*this); 
+                    ++(*this); 
+                    return copy; 
+//                    offset++; 
+//                    return *this;
                 }
 
                 bool operator==( const iterator& rhs ) const {
